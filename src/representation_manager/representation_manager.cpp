@@ -16,7 +16,7 @@ namespace representation_manager{
 		std::shared_ptr<representation_manager::srv::AddPlugin::Response> response){
 		if(plugins_.find(request->plugin_name) == plugins_.end()){
 			RepPluginPtr plugin = plugin_loader_.createSharedInstance(std::string("")+(request->plugin_name.c_str()));
-			plugin->setup(shared_from_this(), request->plugin_name);
+			plugin->setup(shared_from_this(), request->plugin_name, request->threaded);
 			plugin->initialize();
 			plugins_[request->plugin_name] = plugin;
 			response->success = true;
