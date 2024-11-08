@@ -16,6 +16,8 @@ namespace representation_manager{
 		std::shared_ptr<representation_manager::srv::AddPlugin::Response> response){
 		if(plugins_.find(request->plugin_name) == plugins_.end()){
 			RepPluginPtr plugin = plugin_loader_.createSharedInstance(std::string("")+(request->plugin_name.c_str()));
+			// SemanticPluginPtr semantic_plugin = std::dynamic_pointer_cast<representation_plugins::SemanticPlugin>(plugin);
+			// semantic_plugin->testFunc(); // Passed! :)
 			plugin->setup(shared_from_this(), request->plugin_name, request->threaded);
 			plugin->initialize();
 			plugins_[request->plugin_name] = plugin;
