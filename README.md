@@ -7,8 +7,11 @@ Building
 --------
 
 `$ rosdep init`
+
 `$ rosdep update`
+
 `$ rosdep install -y --skip-keys map_handler --skip-keys representation_plugin_base --skip-keys vdb2pc --skip-keys OpenCV --skip-keys openvdb --skip-keys reg_of_space_server --skip-keys representation_plugins --from-path src/representation_manager`
+
 `$ colcon build --packages-select representation_manager`
 
 Running
